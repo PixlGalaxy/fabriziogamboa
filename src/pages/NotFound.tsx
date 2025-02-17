@@ -32,7 +32,7 @@ const NotFound: React.FC = () => {
             to="/"
             className="text-xl md:text-2xl text-blue-700 hover:underline race-font"
           >
-            Go To EagleDocs Home Page
+            Go To Home Page
           </Link>
         </div>
       </div>
