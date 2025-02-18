@@ -27,10 +27,23 @@ const Navbar: React.FC = () => {
                 <strong>Home</strong>
               </Link>
               <Link
+                to="https://itzgalaxy.com"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
+              >
+                <strong>ItzGalaxy</strong>
+              </Link>
+              <Link
                 to="/about"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
                 <strong>About</strong>
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-300 hover:text-blue-500 transition-colors"
+              >
+                <strong>Contact</strong>
               </Link>
               <Link
                 to="/projects"
@@ -50,6 +63,12 @@ const Navbar: React.FC = () => {
               >
                 <strong>GitHub</strong>
               </a>
+              <Link
+                to="https://onlinestatus.itzgalaxy.com"
+                className="text-gray-300 hover:text-blue-500 transition-colors"
+              >
+                <strong>Server Status</strong>
+              </Link>
             </div>
           </div>
 
@@ -81,11 +100,24 @@ const Navbar: React.FC = () => {
                 <strong>Home</strong>
               </Link>
               <Link
+                to="https://itzgalaxy.com"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
+              >
+                <strong>ItzGalaxy</strong>
+              </Link>
+              <Link
                 to="/about"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
                 <strong>About</strong>
+              </Link>
+              <Link
+                to="/contact"
+                className="text-gray-300 hover:text-blue-500 transition-colors"
+              >
+                <strong>Contact</strong>
               </Link>
               <Link
                 to="/projects"
@@ -101,13 +133,12 @@ const Navbar: React.FC = () => {
               >
                 <strong>Social</strong>
               </Link>
-              <a
-                href="https://github.com/PixlGalaxy"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
+              <Link
+                to="https://onlinestatus.itzgalaxy.com"
+                className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                <strong>GitHub</strong>
-              </a>
+                <strong>Server Status</strong>
+              </Link>
             </div>
           </div>
         )}
