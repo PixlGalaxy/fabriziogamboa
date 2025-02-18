@@ -39,7 +39,7 @@ const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 const Home: React.FC = () => {
   return (
     <>
-      <title>Fabrizio Gamboa | Home</title>
+      <title>Fabrizio Gamboa - Home</title>
       <meta
         name="description"
         content="Computer Scientist & Mechatronic Engineer | Virtualization, AI, and Programming"
