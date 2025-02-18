@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Star, GitFork, AlertTriangle } from "lucide-react"; // Importamos los iconos
+import { Star, GitFork, AlertTriangle, Loader2 } from "lucide-react"; // Importamos iconos
 
 const EXCLUDED_REPOS = ["PixlGalaxy.github.io", "PixlGalaxy"];
 
@@ -41,6 +41,7 @@ const Projects: React.FC = () => {
   const [repos, setRepos] = useState<Repo[]>([]);
   const [languages, setLanguages] = useState<{ [key: number]: { [lang: string]: number } }>({});
   const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -68,7 +69,23 @@ const Projects: React.FC = () => {
     };
 
     fetchRepos();
+
+    // Simula el delay de 3 segundos antes de mostrar el contenido
+    const delay = setTimeout(() => {
+      setShowContent(true);
+    }, 3000);
+
+    return () => clearTimeout(delay);
   }, []);
+
+  if (!showContent) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+        <Loader2 size={50} className="animate-spin text-blue-500 mb-4" />
+        <p className="text-lg font-semibold">Fetching Data...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
@@ -81,7 +98,12 @@ const Projects: React.FC = () => {
       <div className="relative z-10 text-center pt-24 px-4 md:px-10 lg:px-16">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-6">My GitHub Projects</h1>
 
-        {loading && <p className="text-lg">Loading projects...</p>}
+        {loading && (
+          <div className="flex flex-col items-center justify-center text-gray-300 text-lg mt-4">
+            <Loader2 size={24} className="animate-spin mr-2 text-blue-500" />
+            <span>Loading projects...</span>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 gap-6 w-full max-w-4xl mx-auto p-2 sm:p-5">
           {repos.map((repo) => {
@@ -152,18 +174,6 @@ const Projects: React.FC = () => {
               </a>
             );
           })}
-        </div>
-
-        <div className="mt-6 w-full max-w-4xl mx-auto p-3 sm:p-5">
-          <h3 className="text-lg sm:text-xl font-semibold mb-2 text-left">Languages:</h3>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {Object.entries(languageColors).map(([lang, color]) => (
-              <div key={lang} className="flex items-center space-x-1 sm:space-x-2">
-                <span className="w-3 h-3 sm:w-4 sm:h-4 rounded-full" style={{ backgroundColor: color }}></span>
-                <span className="text-xs sm:text-sm text-gray-300">{lang}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         <footer className="mt-12 text-white-400 text-center md:text-left">
