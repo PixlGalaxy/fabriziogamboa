@@ -109,6 +109,6 @@ app.post("/backend/contact", async (req, res) => {
 });
 
 // Start Express Server
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
     console.log(`[Backend] Backend running on http://localhost:${PORT}`);
 });
