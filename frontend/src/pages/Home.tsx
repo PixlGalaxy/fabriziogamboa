@@ -371,33 +371,6 @@ const Home: React.FC = () => {
             </section>
           </FadeInSection>
 
-          {/* Contact & Socials Section */}
-          <FadeInSection>
-            <section>
-              <h2 className="text-3xl font-semibold mb-4">Contact &amp; Socials</h2>
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <a href="https://itzgalaxy.com" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src="https://img.shields.io/badge/ItzGalaxy.com-FF7139?style=for-the-badge&logo=firefox&logoColor=white"
-                    alt="Website"
-                  />
-                </a>
-                <a href="https://linkedin.com/in/fabrizio-gamboa-a606b4161" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white"
-                    alt="LinkedIn"
-                  />
-                </a>
-                <a href="https://www.instagram.com/gamboafabrizio/" target="_blank" rel="noopener noreferrer">
-                  <img
-                    src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white"
-                    alt="Instagram"
-                  />
-                </a>
-              </div>
-            </section>
-          </FadeInSection>
-
           {/* Footer */}
           <footer className="mt-12 text-gray-400 text-center md:text-left">
             <p>&copy; {new Date().getFullYear()} Fabrizio Gamboa | ItzGalaxy.com | All Rights Reserved.</p>
