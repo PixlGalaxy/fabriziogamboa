@@ -73,6 +73,7 @@ const Home: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-center md:text-left">
               Fabrizio Gamboa
             </h1>
+            <h2 className="text-4xl md:text-4xl font-extrabold mb-4 text-center md:text-left">Also Known As Pixl</h2>
             <h3 className="text-lg md:text-2xl text-center md:text-left max-w-lg leading-relaxed">
               Computer Scientist &amp; Mechatronic Engineer <br className="hidden md:block"/>
               AI, Virtualization, and Software Development.
