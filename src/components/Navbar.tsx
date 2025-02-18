@@ -24,31 +24,31 @@ const Navbar: React.FC = () => {
                 to="/"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                Home
+                <strong>Home</strong>
               </Link>
               <Link
                 to="/about"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                About
+                <strong>About</strong>
               </Link>
               <Link
                 to="/projects"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                Projects
+                <strong>Projects</strong>
               </Link>
               <Link
                 to="/social"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                Social
+                <strong>Social</strong>
               </Link>
               <a
                 href="https://github.com/PixlGalaxy"
                 className="text-gray-300 hover:text-blue-500 transition-colors"
               >
-                GitHub
+                <strong>GitHub</strong>
               </a>
             </div>
           </div>
