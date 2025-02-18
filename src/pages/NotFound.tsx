@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
 
 const NotFound: React.FC = () => {
   return (
@@ -133,9 +132,6 @@ const NotFound: React.FC = () => {
           </g>
         </svg>
       </div>
-
-      {/* Navigation Bar */}
-      <Navbar />
 
       <div className="pt-20 flex-1 flex flex-col md:flex-row items-center justify-center px-4 md:px-0">
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
