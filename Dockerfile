@@ -23,9 +23,11 @@ COPY backend ./
 
 # Stage 3: Final setup with Nginx
 FROM nginx:alpine
-COPY --from=frontend-build /app/dist /usr/share/nginx/html
-COPY --from=backend /app /app
+COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy backend from the previous stage
+COPY --from=backend /app /backend
 
 # Expose ports
 EXPOSE 80 5000
