@@ -78,35 +78,35 @@ const Navbar: React.FC = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
-                Home
+                <strong>Home</strong>
               </Link>
               <Link
                 to="/about"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
-                About
+                <strong>About</strong>
               </Link>
               <Link
                 to="/projects"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
-                Projects
+                <strong>Projects</strong>
               </Link>
               <Link
                 to="/social"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
-                Social
+                <strong>Social</strong>
               </Link>
               <a
                 href="https://github.com/PixlGalaxy"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
-                GitHub
+                <strong>GitHub</strong>
               </a>
             </div>
           </div>
