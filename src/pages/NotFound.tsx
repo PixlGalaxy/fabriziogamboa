@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const NotFound: React.FC = () => {
   return (
     <div className="relative min-h-screen flex flex-col overflow-hidden">
-      <title>Fabrizio Gamboa | 404</title>
+      <title>Fabrizio Gamboa - 404</title>
       <meta
         name="description"
         content="Error 404 The Page You Are Looking For Does Not Exist."
