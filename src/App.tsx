@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import Social from "./pages/Social";
 import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ const App = () => (
       <Route path="/about" element={<About />} />
       <Route path="/social" element={<Social />} />
       <Route path="/projects" element={<Projects />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   </Router>
 );
