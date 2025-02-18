@@ -152,6 +152,40 @@ const About: React.FC = () => {
               </section>
             </FadeInSection>
 
+            {/* Credits and License Section */}
+            <FadeInSection>
+              <section>
+                <h2 className="text-3xl font-semibold mb-4">Credits & License</h2>
+                <p className="text-lg">
+                  This website was created by <strong>PixlGalaxy</strong> and is open-source. 
+                  You are free to use, modify, and distribute it, as long as you provide credit 
+                  to the original creator <strong>PixlGalaxy</strong> somewhere on your page.
+                </p>
+
+                <p className="text-md mt-2">
+                  View the full source code: 
+                  <a 
+                    href="https://github.com/PixlGalaxy/fabriziogamboa" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:underline ml-1"
+                  >
+                    Here
+                  </a>
+                </p>
+
+                <p className="text-md mt-2">
+                  This project is licensed under the 
+                  <strong> Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>. 
+                  This means you can share and adapt this work as long as you provide proper credit.
+                </p>
+
+                <p className="text-sm mt-4">
+                  © {new Date().getFullYear()} PixlGalaxy. All rights reserved.
+                </p>
+              </section>
+            </FadeInSection>
+
             {/* Footer */}
             <footer className="mt-12 text-gray-400 text-center md:text-left">
                 <p>&copy; {new Date().getFullYear()} Fabrizio Gamboa | ItzGalaxy.com | All Rights Reserved.</p>
