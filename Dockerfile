@@ -1,35 +1,35 @@
-# Usar Node.js para construir el frontend y backend
-FROM node:18-alpine AS build
-WORKDIR /app
-
-# Copiar dependencias
-COPY package.json package-lock.json ./
+# Etapa 1: Construcción del frontend
+FROM node:18 AS build-frontend
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json ./
 RUN npm install
-
-# Copiar el código del frontend y backend
-COPY . .
-
-# Construir el frontend
+COPY frontend ./
 RUN npm run build
 
-# Imagen final con Node.js y Nginx
-FROM node:18-alpine
-WORKDIR /app
-
-# Copiar backend y frontend construidos
-COPY --from=build /app/backend /app/backend
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Instalar dependencias del backend
+# Etapa 2: Construcción del backend
+FROM node:18 AS build-backend
 WORKDIR /app/backend
-RUN npm install --production
+COPY backend/package.json backend/package-lock.json ./
+RUN npm install
+COPY backend ./
 
-# Copiar configuración de Nginx
-WORKDIR /app
+# Etapa 3: Configuración de Nginx y consolidación de la imagen final
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+
+# Copiar el frontend generado en la carpeta de Nginx
+COPY --from=build-frontend /app/frontend/dist ./
+
+# Copiar la configuración de Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Exponer el puerto 5000 para el frontend y backend
+# Copiar el backend
+WORKDIR /app/backend
+COPY --from=build-backend /app/backend ./
+RUN chmod +x server.js
+
+# Exponer el puerto
 EXPOSE 5000
 
-# Ejecutar backend y nginx juntos
+# Comando de inicio
 CMD ["sh", "-c", "node /app/backend/server.js & nginx -g 'daemon off;'"]
