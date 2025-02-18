@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="relative min-h-screen text-white overflow-hidden">
       {/* Background Sliding Diagonals */}
       <div className="bg"></div>
       <div className="bg bg2"></div>
