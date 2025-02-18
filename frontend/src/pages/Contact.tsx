@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
     setStatus({ type: "", message: "" });
 
     try {
-      const response = await fetch("/backend/contact", {
+      const response = await fetch("/backend/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
