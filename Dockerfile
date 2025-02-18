@@ -1,4 +1,4 @@
-# Etapa 1: Construcción del frontend
+# 1: Frontend Build
 FROM node:18-alpine AS build-frontend
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
@@ -6,33 +6,33 @@ RUN npm install
 COPY frontend ./
 RUN npm run build
 
-# Etapa 2: Construcción del backend
+# 2: Backend Build
 FROM node:18-alpine AS build-backend
 WORKDIR /app/backend
 COPY backend/package.json backend/package-lock.json ./
 RUN npm install
 COPY backend ./
 
-# Etapa 3: Imagen final con Nginx y Node.js
+# 3: Final Image Nginx And Node.js
 FROM node:18-alpine
 WORKDIR /app
 
-# Instalar Nginx
+# Install Nginx
 RUN apk add --no-cache nginx
 
-# Copiar el frontend a la carpeta de Nginx
+# Copy Frontend To Nginx Dir
 COPY --from=build-frontend /app/frontend/dist /usr/share/nginx/html
 
-# Copiar la configuración de Nginx
+# Copy Nginx Config
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Copiar el backend
+# Copy Backend 
 COPY --from=build-backend /app/backend /app/backend
 WORKDIR /app/backend
 RUN chmod +x server.js
 
-# Exponer los puertos
+# Expose Ports 
 EXPOSE 5000
 
-# Comando de inicio: Ejecutar el backend y Nginx en paralelo
+# Start Commands
 CMD ["sh", "-c", "node /app/backend/server.js & nginx -g 'daemon off;'"]

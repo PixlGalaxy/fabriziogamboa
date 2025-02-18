@@ -50,7 +50,7 @@ client.once("ready", () => {
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 // Rout For Contact Data
-app.post("/backend/contact", async (req, res) => {
+app.post("/api/contact", async (req, res) => {
     const { name, email, message } = req.body;
     const userIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
