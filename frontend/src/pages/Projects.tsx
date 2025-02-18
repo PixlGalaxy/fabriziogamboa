@@ -115,7 +115,6 @@ const Projects: React.FC = () => {
                   {repo.description || "No description provided"}
                 </p>
 
-                {/* 📌 Nueva sección con iconos más bonitos */}
                 <div className="flex justify-around text-xs sm:text-sm text-gray-300 mt-3">
                   <div className="flex items-center space-x-1">
                     <Star size={16} className="text-yellow-400" />
