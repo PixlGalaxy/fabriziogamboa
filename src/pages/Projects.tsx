@@ -75,6 +75,7 @@ const Projects: React.FC = () => {
 
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
+    <title>Fabrizio Gamboa - Projects</title>
       {/* Background Sliding Diagonals */}
       <div className="bg"></div>
       <div className="bg bg2"></div>
