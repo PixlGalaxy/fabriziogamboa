@@ -1,43 +1,35 @@
-# Stage 1: Build the Frontend
+# Usar Node.js para construir el frontend y backend
 FROM node:18-alpine AS build
 WORKDIR /app
 
-# Copy and install dependencies
-COPY frontend/package.json frontend/package-lock.json ./
+# Copiar dependencias
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of the frontend and build
-COPY frontend ./
+# Copiar el código del frontend y backend
+COPY . .
+
+# Construir el frontend
 RUN npm run build
 
-# Stage 2: Set up the Backend
-FROM node:18-alpine AS backend
+# Imagen final con Node.js y Nginx
+FROM node:18-alpine
 WORKDIR /app
 
-# Copy backend files and install dependencies
-COPY backend/package.json backend/package-lock.json ./
-RUN npm install
-
-# Copy the backend code
-COPY backend ./
-
-# Stage 3: Final setup with Nginx
-FROM nginx:alpine
+# Copiar backend y frontend construidos
+COPY --from=build /app/backend /app/backend
 COPY --from=build /app/dist /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy backend from the previous stage
-COPY --from=backend /app /backend
+# Instalar dependencias del backend
+WORKDIR /app/backend
+RUN npm install --production
 
-# Expose ports
-EXPOSE 80 5000
+# Copiar configuración de Nginx
+WORKDIR /app
+COPY nginx.conf /etc/nginx/nginx.conf
 
-# Set enviorment variables
-ARG DISCORD_BOT_TOKEN
-ARG DISCORD_USER_ID
+# Exponer el puerto 5000 para el frontend y backend
+EXPOSE 5000
 
-ENV DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
-ENV DISCORD_USER_ID=${DISCORD_USER_ID}
-
-# Command to run backend and nginx
-CMD ["sh", "-c", "node /backend/server.js & nginx -g 'daemon off;'"]
+# Ejecutar backend y nginx juntos
+CMD ["sh", "-c", "node /app/backend/server.js & nginx -g 'daemon off;'"]

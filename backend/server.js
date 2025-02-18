@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const { Client, GatewayIntentBits, ActivityType } = require("discord.js");
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 // Middlewares
 app.use(cors());
