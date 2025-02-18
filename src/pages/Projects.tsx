@@ -170,8 +170,12 @@ const Projects: React.FC = () => {
                 <span className="text-xs sm:text-sm text-gray-300">{lang}</span>
               </div>
             ))}
-          </div>
+          </div>    
         </div>
+        {/* Footer */}
+        <footer className="mt-12 text-white-400 text-center md:text-left">
+            <p>&copy; {new Date().getFullYear()} Fabrizio Gamboa | ItzGalaxy.com | All Rights Reserved.</p>
+        </footer>
       </div>
     </div>
   );
