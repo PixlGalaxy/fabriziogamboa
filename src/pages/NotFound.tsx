@@ -141,7 +141,7 @@ const NotFound: React.FC = () => {
         <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0">
           <img
             src="/Galaxy.webp"
-            alt="Galaxy Character"
+            alt="Galaxy Fursona"
             className="w-72 md:w-[32rem] transition-all duration-500"
           />
         </div>
