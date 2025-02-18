@@ -24,7 +24,7 @@ const Social: React.FC = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-gray-800 to-black text-white overflow-hidden">
-      
+      <title>Fabrizio Gamboa - Social</title>
       {/* Animated Bubbles */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
         <div className="bubbles">
