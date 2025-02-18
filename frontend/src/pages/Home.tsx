@@ -120,7 +120,7 @@ const Home: React.FC = () => {
                     <h3 className="text-xl md:text-2xl font-semibold mb-2">Programming Languages</h3>
                     <p className="text-base md:text-lg text-gray-200">
                       I typically work with these languages for{" "}
-                      <strong>backend, embedded, and system programming</strong>.
+                      <strong>Backend, Embedded, and System Programming</strong>.
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4 overflow-x-auto py-2">
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
                     <p className="text-base md:text-lg text-gray-200">
                       I use these technologies to build{" "}
                       <strong>Modern Web Applications</strong> and work with{" "}
-                      <strong>AI models</strong> efficiently.
+                      <strong>AI Models</strong> efficiently.
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4">
@@ -335,13 +335,13 @@ const Home: React.FC = () => {
                   Designed and built <strong>NAS, SMB, FTPS, HTTPS servers</strong> for businesses and individuals.
                 </li>
                 <li>
-                  Deep experience in <strong>hardware, server administration, and network infrastructure</strong>.
+                  Deep experience in <strong>Hardware, Server Administration, and Network Infrastructure</strong>.
                 </li>
                 <li>
                   Trained <strong>large-scale AI models (LLMs)</strong> for chatbot applications.
                 </li>
                 <li>
-                  Implemented <strong>virtualization technologies, cloud computing, and web servers (Apache, Flask)</strong>.
+                  Implemented <strong>Virtualization Technologies, Cloud Computing, and Web Servers (Flask, Express.js)</strong>.
                 </li>
               </ul>
             </section>
