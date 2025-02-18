@@ -7,6 +7,10 @@
     background: #ffd000;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+  
 /* ####################################################################### */
 /* Animated Lines CSS */
 
@@ -69,5 +73,105 @@ to {
     opacity: 0.4;
 }
     }  
-    
+
 /* ####################################################################### */
+/* Animated Cubes CSS */
+
+
+.hero {
+  background: linear-gradient(to top right, #1b1b1b, #000000);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 1;
+}
+
+.hero__title {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 1;
+}
+
+.cube {
+  position: absolute;
+  top: 80%;
+  left: 45%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #ffc400;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation:     cube 12s ease-in forwards infinite, cubeColors 2s ease-in-out infinite alternate; /* Animación alternativa */
+  
+  z-index: 0;
+}
+
+.cube:nth-child(2n) {
+  border-color: #4eea33;
+}
+
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25%;
+  top: 40%;
+}
+
+.cube:nth-child(3) {
+  animation-delay: 4s;
+  left: 75%;
+  top: 50%;
+}
+
+.cube:nth-child(4) {
+  animation-delay: 6s;
+  left: 90%;
+  top: 10%;
+}
+
+.cube:nth-child(5) {
+  animation-delay: 8s;
+  left: 10%;
+  top: 85%;
+}
+
+.cube:nth-child(6) {
+  animation-delay: 10s;
+  left: 50%;
+  top: 10%;
+}
+
+.cube:nth-child(7) {
+    animation-delay: 12s;
+    left: 60%;
+    top: 70%;
+}
+
+.cube:nth-child(8) {
+    animation-delay: 14s;
+    left: 20%;
+    top: 20%;
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cubeColors {
+    from { border-color: #ffdd00; }
+    to { 
+      border-color: #4eea33;
+      filter: hue-rotate(90deg);
+    }
+  }
