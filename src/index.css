@@ -344,8 +344,7 @@ to {
       transform: translateY(-150vh);
     }
   }
-  
-  /* Generamos burbujas de manera manual */
+
   .bubble:nth-child(1) { left: 10%; --speed: 1.2; }
   .bubble:nth-child(2) { left: 20%; --speed: 1.5; }
   .bubble:nth-child(3) { left: 30%; --speed: 1.8; }

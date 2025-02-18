@@ -11,7 +11,7 @@ const socialLinks = [
   { name: "Telegram", icon: <FaTelegram />, url: "https://t.me/fabriziogamboa", color: "bg-blue-500" },
 ];
 
-const discordID = "pixwolf"; // Coloca tu ID de Discord aquí
+const discordID = "pixwolf";
 
 const Social: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -19,7 +19,7 @@ const Social: React.FC = () => {
   const copyDiscordID = () => {
     navigator.clipboard.writeText(discordID);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000); // Mensaje desaparece después de 2 segundos
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -39,7 +39,7 @@ const Social: React.FC = () => {
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8">Connect With Me</h1>
 
         <div className="flex flex-col gap-4">
-          {/* Botón de Discord con funcionalidad de copiar ID */}
+          {/* Discord Button */}
           <div className="relative">
             <button
               onClick={copyDiscordID}
@@ -55,7 +55,7 @@ const Social: React.FC = () => {
             )}
           </div>
 
-          {/* Botones de otras redes */}
+          {/* Other Networks Bottons */}
           {socialLinks.map((link) => (
             <a
               key={link.name}
