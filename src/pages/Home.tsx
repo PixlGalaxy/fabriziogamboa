@@ -48,8 +48,6 @@ const Home: React.FC = () => {
       {/* Main Container */}
       <div className="min-h-screen hero text-white pt-20 overflow-x-hidden relative">
 
-
-        
         {/* Cubes Container */}
         <div className="absolute inset-0 pointer-events-none z-0" style={{ height: "100%" }}>
           <div className="cube"></div>
