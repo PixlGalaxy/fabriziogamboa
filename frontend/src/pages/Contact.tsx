@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CheckCircle, AlertTriangle, Loader2 } from "lucide-react"; // Importamos iconos de Lucide
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -7,7 +8,7 @@ const Contact: React.FC = () => {
     message: "",
   });
 
-  const [status, setStatus] = useState({ type: "", message: "" });
+  const [status, setStatus] = useState<{ type: string; message: string }>({ type: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -29,11 +30,13 @@ const Contact: React.FC = () => {
       if (response.ok) {
         setStatus({ type: "success", message: "Message sent successfully!" });
         setFormData({ name: "", email: "", message: "" });
+      } else if (response.status === 429) {
+        setStatus({ type: "warning", message: "Your message has already been registered. Try again later." });
       } else {
-        setStatus({ type: "error", message: "Failed to send message. Try again later." });
+        setStatus({ type: "error", message: "Failed to send message. Please try again later." });
       }
     } catch (error) {
-      setStatus({ type: "error", message: "An error occurred. Please try again." });
+      setStatus({ type: "error", message: "An unexpected error occurred. Please try again." });
     }
 
     setIsSubmitting(false);
@@ -54,13 +57,20 @@ const Contact: React.FC = () => {
           Have questions or feedback? Fill out the form below, and I'll get back to you as soon as possible.
         </p>
 
-        {/* Status Message */}
+        {/* Status Message with Icons */}
         {status.message && (
           <div
-            className={`text-center text-lg font-semibold p-3 rounded-lg mb-4 ${
-              status.type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"
+            className={`flex items-center justify-center text-center text-lg font-semibold p-3 rounded-lg mb-4 ${
+              status.type === "success"
+                ? "bg-green-500 text-white"
+                : status.type === "warning"
+                ? "bg-yellow-500 text-black"
+                : "bg-red-500 text-white"
             }`}
           >
+            {status.type === "success" && <CheckCircle size={20} className="mr-2" />}
+            {status.type === "warning" && <AlertTriangle size={20} className="mr-2" />}
+            {status.type === "error" && <AlertTriangle size={20} className="mr-2" />}
             {status.message}
           </div>
         )}
@@ -103,10 +113,11 @@ const Contact: React.FC = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full py-3 rounded-lg text-lg font-semibold transition ${
+            className={`w-full flex items-center justify-center py-3 rounded-lg text-lg font-semibold transition ${
               isSubmitting ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
             }`}
           >
+            {isSubmitting ? <Loader2 size={20} className="animate-spin mr-2" /> : null}
             {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
@@ -116,13 +127,13 @@ const Contact: React.FC = () => {
       <div className="relative z-10 max-w-4xl bg-gray-800 shadow-lg rounded-lg p-6 mt-6 mx-4 w-full">
         <h2 className="text-2xl font-bold text-center mb-4">Other Ways To Reach Me</h2>
         <p className="text-lg text-gray-300 text-center mb-4">
-            Email:{" "}
+          Email:{" "}
           <a href="mailto:business.fabrizio.gamboa.p@gmail.com" className="text-blue-400 hover:underline">
             business.fabrizio.gamboa.p@gmail.com
           </a>
         </p>
-        </div>
       </div>
+    </div>
   );
 };
 
