@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
               <Link
                 to="https://itzgalaxy.com"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
+                className="text-gray-300 hover:text-blue-500 transition-colors"
               >
                 <strong>ItzGalaxy</strong>
               </Link>
@@ -115,7 +115,8 @@ const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
                 <strong>Contact</strong>
               </Link>
@@ -135,7 +136,7 @@ const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="https://onlinestatus.itzgalaxy.com"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
+                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
               >
                 <strong>Server Status</strong>
               </Link>
