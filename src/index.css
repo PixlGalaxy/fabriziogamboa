@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* ####################################################################### */
+/* Global CSS */
+
 .background404 {
     opacity: 0.4;
     background: #ffd000;
@@ -10,6 +14,28 @@
 html, body {
     overflow-x: hidden;
 }
+
+/* ####################################################################### */
+/* Logo CSS */
+
+@keyframes rgbCycle {
+    0% {
+        color: rgb(255, 230, 0);
+    }
+    33% {
+        color: rgb(0, 255, 213);
+    }
+    66% {
+        color: rgb(0, 255, 60);
+    }
+    100% {
+        color: rgb(255, 230, 0);
+    }
+  }
+  
+  .logo {
+    animation: rgbCycle 5s linear infinite;
+  }
   
 /* ####################################################################### */
 /* Animated Lines CSS */
@@ -19,129 +45,130 @@ html, body {
   }
   
 #red {
-fill: none;
-opacity: 0.4;
-stroke: #ffdd00;
-stroke-width: 12;
-stroke-miterlimit:10;
-animation: show 4s;
-animation-fill-mode: forwards;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out; 
+    fill: none;
+    opacity: 0.4;
+    stroke: #ffdd00;
+    stroke-width: 12;
+    stroke-miterlimit:10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out; 
 }
 
 #blue {
-fill: none;
-opacity: 0.4;
-stroke: #ff7b00;
-stroke-width: 12;
-stroke-miterlimit:10;
-animation: show 4s;
-animation-fill-mode: forwards;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;
+    fill: none;
+    opacity: 0.4;
+    stroke: #ff7b00;
+    stroke-width: 12;
+    stroke-miterlimit:10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 
 #light-blue {
-fill: none;
-opacity: 0.4;
-stroke: #00ff9d;
-stroke-width: 6;
-stroke-miterlimit:10;
-stroke-dasharray: 200;
-stroke-dashoffset: 800;
-animation: draw 4s;
-animation-fill-mode: forwards;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out;    
+    fill: none;
+    opacity: 0.4;
+    stroke: #00ff9d;
+    stroke-width: 6;
+    stroke-miterlimit:10;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 800;
+    animation: draw 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;    
 }
 
 @keyframes draw {
 to {
     stroke-dashoffset: 0;
-}
     }
+}
 
 @keyframes show {
 0% {
     opacity: 0.4;
-}
+    }
+
 50% {
     opacity: 0.7;
-}
+    }
+
 100% {
     opacity: 0.4;
-}
-    }  
+    }
+}  
 
 /* ####################################################################### */
 /* Animated Cubes CSS */
 
 
 .hero {
-  background: linear-gradient(to top right, #1b1b1b, #000000);
-  position: relative;
-  overflow: hidden;
-  font-family: 'Montserrat', sans-serif;
-  z-index: 1;
+    background: linear-gradient(to top right, #1b1b1b, #000000);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1;
 }
 
 .hero__title {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  z-index: 1;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    z-index: 1;
 }
 
 .cube {
-  position: absolute;
-  top: 80%;
-  left: 45%;
-  width: 10px;
-  height: 10px;
-  border: 1px solid #ffc400;
-  transform-origin: top left;
-  transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  animation:     cube 12s ease-in forwards infinite, cubeColors 2s ease-in-out infinite alternate; /* Animación alternativa */
-  
-  z-index: 0;
+    position: absolute;
+    top: 80%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ffc400;
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 12s ease-in forwards infinite, cubeColors 2s ease-in-out infinite alternate; /* Animación alternativa */
+    z-index: 0;
 }
 
 .cube:nth-child(2n) {
-  border-color: #4eea33;
+    border-color: #4eea33;
 }
 
 .cube:nth-child(2) {
-  animation-delay: 2s;
-  left: 25%;
-  top: 40%;
+    animation-delay: 2s;
+    left: 25%;
+    top: 40%;
 }
 
 .cube:nth-child(3) {
-  animation-delay: 4s;
-  left: 75%;
-  top: 50%;
+    animation-delay: 4s;
+    left: 75%;
+    top: 50%;
 }
 
 .cube:nth-child(4) {
-  animation-delay: 6s;
-  left: 90%;
-  top: 10%;
+    animation-delay: 6s;
+    left: 90%;
+    top: 10%;
 }
 
 .cube:nth-child(5) {
-  animation-delay: 8s;
-  left: 10%;
-  top: 85%;
+    animation-delay: 8s;
+    left: 10%;
+    top: 85%;
 }
 
 .cube:nth-child(6) {
-  animation-delay: 10s;
-  left: 50%;
-  top: 10%;
+    animation-delay: 10s;
+    left: 50%;
+    top: 10%;
 }
 
 .cube:nth-child(7) {
@@ -157,21 +184,24 @@ to {
 }
 
 @keyframes cube {
-  from {
-    transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    opacity: 1;
-  }
+    from {
+        transform: scale(0) rotate(0deg) translate(-50%, -50%);
+        opacity: 1;
+    }
 
-  to {
-    transform: scale(20) rotate(960deg) translate(-50%, -50%);
-    opacity: 0;
-  }
+    to {
+        transform: scale(20) rotate(960deg) translate(-50%, -50%);
+        opacity: 0;
+    }
 }
 
 @keyframes cubeColors {
-    from { border-color: #ffdd00; }
+    from {
+        border-color: #ffdd00; 
+    }
+
     to { 
-      border-color: #4eea33;
-      filter: hue-rotate(90deg);
+        border-color: #4eea33;
+        filter: hue-rotate(90deg);
     }
   }
