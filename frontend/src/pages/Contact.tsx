@@ -41,6 +41,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
+      <title>Fabrizio Gamboa - Contact</title>
       {/* Background Effect */}
       <div className="bg"></div>
       <div className="bg bg2"></div>
