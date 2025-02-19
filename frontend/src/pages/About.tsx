@@ -94,6 +94,9 @@ const About: React.FC = () => {
                     <strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong> - Bachelor of Mechatronic Engineering (2021 - 2023)
                   </li>
                   <li>
+                    <strong>Universidad de Ingeniería y Tecnología (UTEC)</strong> - Bachelor of Mechatronic Engineering (2019 - 2020)
+                  </li>
+                  <li>
                     <strong>Colegio Santa María Marianistas</strong> - Secondary Education (2012 - 2017)
                   </li>
                   <li>
