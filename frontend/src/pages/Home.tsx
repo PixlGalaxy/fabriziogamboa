@@ -48,7 +48,6 @@ const Home: React.FC = () => {
       {/* Main Container */}
       <div className="min-h-screen hero text-white pt-20 sm:pt-20 md:pt-24 lg:pt-32 overflow-x-hidden relative">
 
-
         {/* Cubes Container */}
         <div className="absolute inset-0 pointer-events-none z-0" style={{ height: "100%" }}>
           <div className="cube"></div>
@@ -125,41 +124,49 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4 overflow-x-auto py-2">
+
                     <img
                       src="/Skill_Icons/python.svg"
                       alt="Python"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/cs.svg"
                       alt="C#"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/cpp.svg"
                       alt="C++"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/c.svg"
                       alt="C"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/js.svg"
                       alt="JavaScript"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/ts.svg"
                       alt="TypeScript"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/arduino.svg"
                       alt="Arduino"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                   </div>
                 </div>
 
@@ -174,56 +181,67 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4">
+
                     <img
                       src="/Skill_Icons/dotnet.svg"
                       alt=".NET"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/react.svg"
                       alt="React"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/nodejs.svg"
                       alt="Node.js"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/bootstrap.svg"
                       alt="Bootstrap"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/tailwind.svg"
                       alt="Tailwind CSS"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/qt.svg"
                       alt="Qt"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/pytorch.svg"
                       alt="PyTorch"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/tensorflow.svg"
                       alt="TensorFlow"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/html.svg"
                       alt="HTML"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/css.svg"
                       alt="CSS"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                   </div>
                 </div>
                       
@@ -237,36 +255,43 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4">
+                  
                     <img
                       src="/Skill_Icons/linux.svg"
                       alt="Linux"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/ubuntu.svg"
                       alt="Ubuntu"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/redhat.svg"
                       alt="Red Hat"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/windows.svg"
                       alt="Windows"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/kali.svg"
                       alt="Kali Linux"
                       className="max-w-[280px] md:max-w-none"
                     />
+                    
                     <img
                       src="/Skill_Icons/raspberrypi.svg"
                       alt="Raspberry Pi"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                   </div>
                 </div>
 
@@ -280,46 +305,55 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4">
+
                     <img
                       src="/Skill_Icons/docker.svg"
                       alt="Docker"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/nginx.svg"
                       alt="Nginx"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/git.svg"
                       alt="Git"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/sqlite.svg"
                       alt="SQLite"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/cloudflare.svg"
                       alt="Cloudflare"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/powershell.svg"
                       alt="PowerShell"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/vscode.svg"
                       alt="VS Code"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                     <img
                       src="/Skill_Icons/visualstudio.svg"
                       alt="Visual Studio"
                       className="max-w-[280px] md:max-w-none"
                     />
+
                   </div>
                 </div>
               </div>

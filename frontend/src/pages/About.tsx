@@ -193,7 +193,7 @@ const About: React.FC = () => {
             <footer className="mt-12 text-gray-400 text-center md:text-left">
                 <p>&copy; {new Date().getFullYear()} Fabrizio Gamboa | ItzGalaxy.com | All Rights Reserved.</p>
             </footer>
-
+            
           </div>
         </div>
       </div>

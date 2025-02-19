@@ -45,6 +45,7 @@ const Contact: React.FC = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
       <title>Fabrizio Gamboa - Contact</title>
+
       {/* Background Effect */}
       <div className="bg"></div>
       <div className="bg bg2"></div>
@@ -88,6 +89,7 @@ const Contact: React.FC = () => {
               className="w-full mt-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
           <div>
             <label className="block text-gray-300 font-semibold">Email</label>
             <input
@@ -99,6 +101,7 @@ const Contact: React.FC = () => {
               className="w-full mt-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+
           <div>
             <label className="block text-gray-300 font-semibold">Message</label>
             <textarea
@@ -110,6 +113,7 @@ const Contact: React.FC = () => {
               className="w-full mt-1 p-3 border border-gray-600 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
+          
           <button
             type="submit"
             disabled={isSubmitting}
@@ -133,6 +137,7 @@ const Contact: React.FC = () => {
           </a>
         </p>
       </div>
+      
     </div>
   );
 };
