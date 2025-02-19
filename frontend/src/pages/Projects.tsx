@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Star, GitFork, AlertTriangle, Loader2 } from "lucide-react"; // Importamos iconos
+import { Star, GitFork, AlertTriangle, Loader2 } from "lucide-react";
 
 const EXCLUDED_REPOS = ["PixlGalaxy.github.io", "PixlGalaxy"];
 
@@ -70,7 +70,7 @@ const Projects: React.FC = () => {
 
     fetchRepos();
 
-    // Simula el delay de 3 segundos antes de mostrar el contenido
+    // Simulates Fetching Data For 3 Seconds
     const delay = setTimeout(() => {
       setShowContent(true);
     }, 3000);
