@@ -52,12 +52,12 @@ const Navbar: React.FC = () => {
           <div className="flex md:hidden items-center">
             <button
               onClick={toggleMenu}
-              className={`text-gray-300 hover:text-blue-500 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
+              className={`logo hover:text-blue-500 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
             >
               {isMenuOpen ? (
                 <X className="w-6 h-6 text-red-300" />  // Lucide X Icon
               ) : (
-                <Menu className="w-6 h-6 text-green-300" />  // Lucide Menu Icon
+                <Menu className="w-6 h-6 text-300" />  // Lucide Menu Icon
               )}
 
             </button>
