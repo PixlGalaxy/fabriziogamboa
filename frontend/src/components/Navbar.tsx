@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/Icon.svg";
+import { Menu, X } from "lucide-react";  // Importa los íconos de Lucide
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -20,53 +21,28 @@ const Navbar: React.FC = () => {
 
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-6">
-              <Link
-                to="/"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="/" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>Home</strong>
               </Link>
-              <Link
-                to="https://itzgalaxy.com"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="https://itzgalaxy.com" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>ItzGalaxy</strong>
               </Link>
-              <Link
-                to="/about"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="/about" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>About</strong>
               </Link>
-              <Link
-                to="/contact"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="/contact" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>Contact</strong>
               </Link>
-              <Link
-                to="/projects"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="/projects" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>Projects</strong>
               </Link>
-              <Link
-                to="/social"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="/social" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>Social</strong>
               </Link>
-              <a
-                href="https://github.com/PixlGalaxy"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <a href="https://github.com/PixlGalaxy" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>GitHub</strong>
               </a>
-              <Link
-                to="https://onlinestatus.itzgalaxy.com"
-                className="text-gray-300 hover:text-blue-500 transition-colors"
-              >
+              <Link to="https://onlinestatus.itzgalaxy.com" className="text-gray-300 hover:text-blue-500 transition-colors">
                 <strong>Server Status</strong>
               </Link>
             </div>
@@ -74,75 +50,46 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Hamburger */}
           <div className="flex md:hidden items-center">
-            <button onClick={toggleMenu} className="text-gray-300 hover:text-blue-500">
+            <button
+              onClick={toggleMenu}
+              className={`text-gray-300 hover:text-blue-500 transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
+            >
               {isMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X className="w-6 h-6 text-red-300" />  // Lucide X Icon
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <Menu className="w-6 h-6 text-green-300" />  // Lucide Menu Icon
               )}
+
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4">
-            <div className="flex flex-col space-y-3 text-center">
-              <Link
-                to="/"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>Home</strong>
-              </Link>
-              <Link
-                to="https://itzgalaxy.com"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>ItzGalaxy</strong>
-              </Link>
-              <Link
-                to="/about"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>About</strong>
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>Contact</strong>
-              </Link>
-              <Link
-                to="/projects"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>Projects</strong>
-              </Link>
-              <Link
-                to="/social"
-                onClick={() => setIsMenuOpen(false)}
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>Social</strong>
-              </Link>
-              <Link
-                to="https://onlinestatus.itzgalaxy.com"
-                className="text-gray-300 hover:text-blue-500 transition-colors py-2"
-              >
-                <strong>Server Status</strong>
-              </Link>
-            </div>
+        <div className={`navbar-mobile ${isMenuOpen ? "active" : ""}`}>
+          <div className="flex flex-col space-y-3 text-center">
+            <Link to="/" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>Home</strong>
+            </Link>
+            <Link to="https://itzgalaxy.com" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>ItzGalaxy</strong>
+            </Link>
+            <Link to="/about" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>About</strong>
+            </Link>
+            <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>Contact</strong>
+            </Link>
+            <Link to="/projects" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>Projects</strong>
+            </Link>
+            <Link to="/social" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>Social</strong>
+            </Link>
+            <Link to="https://onlinestatus.itzgalaxy.com" onClick={() => setIsMenuOpen(false)} className="navbar-link text-gray-300 hover:text-blue-500 transition-colors py-2">
+              <strong>Server Status</strong>
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
