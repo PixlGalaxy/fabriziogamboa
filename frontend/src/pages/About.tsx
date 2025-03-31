@@ -97,10 +97,10 @@ const About: React.FC = () => {
                     <strong>Universidad de Ingeniería y Tecnología (UTEC)</strong> - Bachelor of Mechatronic Engineering (2019 - 2020)
                   </li>
                   <li>
-                    <strong>Colegio Santa María Marianistas</strong> - Secondary Education (2012 - 2017)
+                    <strong>Colegio José Quiñones</strong> - Secondary Education (2018)
                   </li>
                   <li>
-                    <strong>Colegio José Quiñones</strong> - Secondary Education (2018)
+                    <strong>Colegio Santa María Marianistas</strong> - Secondary Education (2012 - 2017)
                   </li>
                 </ul>
               </section>
