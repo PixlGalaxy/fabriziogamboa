@@ -11,45 +11,24 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Dicord Bot Config
+// Discord Bot Config
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages] });
 
-let lastActivity = Date.now();
 const cooldownMap = new Map(); // IP Map To Prevent Spam
-let statusTimeout = null; // Sleep Control Timer
 
-// Status Updater
-const updateBotStatus = (forceStatus = null) => {
-    const elapsedTime = Date.now() - lastActivity;
-
-    let newStatus, activityText;
-
-    if (forceStatus === "online" || elapsedTime <= 10 * 60 * 1000) {
-        newStatus = "online";
-        activityText = "fabriziogamboa.com";
-        console.log("[Backend] Bot is now ONLINE...");
-    } else {
-        newStatus = "idle";
-        activityText = "Sleeping...";
-        console.log("[Backend] Bot is now in SLEEP mode...");
-    }
-
-    client.user.setPresence({
-        status: newStatus,
-        activities: [{ name: activityText, type: ActivityType.Listening }]
-    });
-};
-
-// Initialize Bot And Set It To "Sleeping"
+// Initialize Bot and Set Presence
 client.once("ready", () => {
     console.log(`[Backend] Bot Online as ${client.user.tag}`);
-    updateBotStatus("idle");
-    setInterval(() => updateBotStatus(), 5 * 60 * 1000);
+
+    client.user.setPresence({
+        status: "online",
+        activities: [{ name: "fabriziogamboa.com", type: ActivityType.Listening }]
+    });
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
 
-// Rout For Contact Data
+// Route For Contact Data
 app.post("/api/contact", async (req, res) => {
     const { name, email, message } = req.body;
     const userIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
@@ -91,14 +70,6 @@ app.post("/api/contact", async (req, res) => {
 
         await discordUser.send({ embeds: [embed] });
         console.log(`[Backend] Message sent to Discord: ${name} - ${email}`);
-
-        lastActivity = Date.now(); 
-        updateBotStatus("online");
-
-        if (statusTimeout) clearTimeout(statusTimeout);
-        statusTimeout = setTimeout(() => {
-            updateBotStatus("idle");
-        }, 10 * 60 * 1000);
 
         res.json({ success: "Message sent to Discord successfully!" });
 
