@@ -7,7 +7,7 @@ const socialLinks = [
   { name: "Facebook", icon: <FaFacebook />, url: "https://www.facebook.com/fabrizio.gamboa.p", color: "bg-blue-700" },
   { name: "Instagram", icon: <FaInstagram />, url: "https://www.instagram.com/gamboafabrizio/", color: "bg-pink-600" },
   { name: "Twitter", icon: <FaTwitter />, url: "https://x.com/Fabriziogp00", color: "bg-blue-400" },
-  { name: "YouTube", icon: <FaYoutube />, url: "https://www.youtube.com/@fabriziogamboapalacios6070", color: "bg-red-600" },
+  { name: "YouTube", icon: <FaYoutube />, url: "https://www.youtube.com/@fabriziogamboap", color: "bg-red-600" },
   { name: "Telegram", icon: <FaTelegram />, url: "https://t.me/fabriziogamboa", color: "bg-blue-500" },
 ];
 
