@@ -257,6 +257,12 @@ const Home: React.FC = () => {
                   <div className="md:w-1/2 flex flex-wrap justify-center gap-2 md:gap-4">
                   
                     <img
+                      src="/Skill_Icons/unraid.svg"
+                      alt="Linux"
+                      className="max-w-[280px] md:max-w-none"
+                    />
+
+                    <img
                       src="/Skill_Icons/linux.svg"
                       alt="Linux"
                       className="max-w-[280px] md:max-w-none"
