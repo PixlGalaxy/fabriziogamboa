@@ -245,7 +245,7 @@ const About: React.FC = () => {
                   </li>
                   <li className="flex items-center gap-2">
                     <span>
-                      <strong>PUCP</strong> – Built Your Own 3D Printer (2015)
+                      <strong>PUCP</strong> – Build Your Own 3D Printer (2015)
                     </span>
                     <a
                       href="https://webincloud.itzgalaxy.com/public/file/9fsjinycp0elrbdqfktfhq/PUCP%203D%20PRINTER.pdf"
@@ -272,7 +272,7 @@ const About: React.FC = () => {
                 </ul>
               </section>
             </FadeInSection>
-            
+
             {/* Credits and License Section */}
             <FadeInSection>
               <section>

@@ -397,7 +397,7 @@ const Home: React.FC = () => {
                 <li><strong>The University of Edinburgh:</strong> An Introduction to Programming (2023)</li>
                 <li><strong>University of Minnesota:</strong> Cloud Security Basics (2023)</li>
                 <li><strong>MIT:</strong> 3D Modeling &amp; Design with Maya (2018)</li>
-                <li><strong>PUCP:</strong> Built Your Own 3D Printer (2015)</li>
+                <li><strong>PUCP:</strong> Build Your Own 3D Printer (2015)</li>
                 <li><strong>Anglo Continental:</strong> English Language &amp; Activity Program (2015)</li>
               </ul>
             </section>
