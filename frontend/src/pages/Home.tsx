@@ -393,8 +393,11 @@ const Home: React.FC = () => {
             <section>
               <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
               <ul className="text-base md:text-lg text-left list-disc space-y-3 pl-4 md:pl-5">
-                <li><strong>PUCP:</strong> Built Your Own 3D Printer (2015)</li>
+                <li><strong>University of Maryland:</strong> Cybersecurity for Everyone (2023)</li>
+                <li><strong>The University of Edinburgh:</strong> An Introduction to Programming (2023)</li>
+                <li><strong>University of Minnesota:</strong> Cloud Security Basics (2023)</li>
                 <li><strong>MIT:</strong> 3D Modeling &amp; Design with Maya (2018)</li>
+                <li><strong>PUCP:</strong> Built Your Own 3D Printer (2015)</li>
                 <li><strong>Anglo Continental:</strong> English Language &amp; Activity Program (2015)</li>
               </ul>
             </section>
