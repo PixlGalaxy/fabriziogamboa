@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { ExternalLink } from "lucide-react";
 
 const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const domRef = useRef<HTMLDivElement | null>(null);
@@ -127,6 +128,36 @@ const About: React.FC = () => {
               </section>
             </FadeInSection>
 
+            {/* Organizations Section */}
+            <FadeInSection>
+              <section>
+                <h2 className="text-3xl font-semibold mb-4">Organizations</h2>
+                <ul className="space-y-2">
+                  <li>
+                    <strong>Member of </strong>
+                    <a
+                      href="https://stegripe.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold hover:underline"
+                    >
+                      'Stegripe Development'
+                    </a>{" "}
+                    (2025–Present) – Developer on{" "}
+                    <a
+                      href="https://github.com/stegripe/rawon"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold hover:underline"
+                    >
+                      Rawon
+                    </a>{" "}
+                    (Discord Music and Management bot).
+                  </li>
+                </ul>
+              </section>
+            </FadeInSection>
+
             {/* Technical Skills Section */}
             <FadeInSection>
               <section>
@@ -146,15 +177,102 @@ const About: React.FC = () => {
                 <h2 className="text-3xl font-semibold mb-4">Professional Experience</h2>
                 <ul className="space-y-2">
                   <li>
-                    <strong>Laboratorio Unilene (2019 - 2023)</strong>: Worked in the development and innovation area, improving sterilization machines and participating in process optimization.
+                    <strong>Laboratorio Unilene</strong> (2019 - 2023) - Worked in the development and innovation area, improving sterilization machines and participating in process optimization.
                   </li>
                   <li>
-                    <strong>FGR Electronics (2015 - 2018)</strong>: Founded my own company, where I designed and fabricated electric bicycles and electric karts for recreational use.
+                    <strong>FGR Electronics</strong> (2015 - 2018) - Founded my own company, where I designed and fabricated electric bicycles and electric karts for recreational use.
                   </li>
                 </ul>
               </section>
             </FadeInSection>
 
+            {/* Certifications Section */}
+            <FadeInSection>
+              <section>
+                <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>University of Maryland</strong> – Cybersecurity for Everyone (2023)
+                    </span>
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/certificate/CU3U8R8HNXYY"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>The University of Edinburgh</strong> – An Introduction to Programming (2023)
+                    </span>
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/certificate/FBBPTTW9EG85"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>University of Minnesota</strong> – Cloud Security Basics (2023)
+                    </span>
+                    <a
+                      href="https://www.coursera.org/account/accomplishments/certificate/WN5FJN46R6HT"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>MIT</strong> – 3D Modeling & Design with Maya (2018)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/miu3n1nlgUmWhZW5k_yw5Q/MIT%20ID%20TECH%20CAMP%20DIPLOMA.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>PUCP</strong> – Built Your Own 3D Printer (2015)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/9fsjinycp0elrbdqfktfhq/PUCP%203D%20PRINTER.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>Anglo Continental</strong> – English Language & Activity Program (2015)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/q_3s6jrzl0qwc3bqagfylw/Certificate%20of%20studies%20anglo%20continental.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                </ul>
+              </section>
+            </FadeInSection>
+            
             {/* Credits and License Section */}
             <FadeInSection>
               <section>
