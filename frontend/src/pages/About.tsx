@@ -209,7 +209,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> – Intro to AI Transformers (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/qPkcIrNWCEGaMC4ztcjhCQ/Intro%20to%20AI%20Transformers%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/public/file/wfiVK1JXV06wfo1hhtswfA/Intro%20to%20AI%20Transformers%20Codecademy.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
