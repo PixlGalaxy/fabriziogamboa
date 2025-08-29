@@ -193,6 +193,32 @@ const About: React.FC = () => {
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <span>
+                      <strong>Codecademy</strong> –  BI Dashboards with Power BI (2025)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/QtBsG_0xFEat4hZpKNdKRw/BI%20Dashboards%20with%20Power%20BI%20Course%20Codecademy.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>Codecademy</strong> – Intro to AI Transformers (2025)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/qPkcIrNWCEGaMC4ztcjhCQ/Intro%20to%20AI%20Transformers%20Codecademy.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
                       <strong>University of Maryland</strong> – Cybersecurity for Everyone (2023)
                     </span>
                     <a
