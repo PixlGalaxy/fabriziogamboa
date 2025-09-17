@@ -393,6 +393,7 @@ const Home: React.FC = () => {
             <section>
               <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
               <ul className="text-base md:text-lg text-left list-disc space-y-3 pl-4 md:pl-5">
+                <li><strong>Codecademy:</strong> Implementing Google Compute Engine Course (2025)</li>
                 <li><strong>Codecademy:</strong> BI Dashboards with Power BI (2025)</li>
                 <li><strong>Codecademy:</strong> Intro to AI Transformers (2025)</li>
                 <li><strong>University of Maryland:</strong> Cybersecurity for Everyone (2023)</li>

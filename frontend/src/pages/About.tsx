@@ -193,6 +193,19 @@ const About: React.FC = () => {
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <span>
+                      <strong>Codecademy</strong> –  Implementing Google Compute Engine Course (2025)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/RO_zdO7IAk6h4GdvuSTShQ/Google%20Associate%20Cloud%20Engineer%20Codecademy.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span>
                       <strong>Codecademy</strong> –  BI Dashboards with Power BI (2025)
                     </span>
                     <a
