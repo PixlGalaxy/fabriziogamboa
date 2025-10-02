@@ -132,8 +132,8 @@ const Contact: React.FC = () => {
         <h2 className="text-2xl font-bold text-center mb-4">Other Ways To Reach Me</h2>
         <p className="text-lg text-gray-300 text-center mb-4">
           Email:{" "}
-          <a href="mailto:business.fabrizio.gamboa.p@gmail.com" className="text-blue-400 hover:underline">
-            business.fabrizio.gamboa.p@gmail.com
+          <a href="mailto:contact@fabriziogamboa.com" className="text-blue-400 hover:underline">
+            contact@fabriziogamboa.com
           </a>
         </p>
       </div>
