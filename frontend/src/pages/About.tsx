@@ -191,7 +191,20 @@ const About: React.FC = () => {
               <section>
                 <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
                 <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
+                  <li className="flex items-center gap-2">
+                    <span>
+                      <strong>Codecademy</strong> – Working with Containers: Docker (2025)
+                    </span>
+                    <a
+                      href="https://webincloud.itzgalaxy.com/public/file/RV0KZ2Ywqk20-sjao8zhdg/Introduction%20to%20Docker%20Course%20Codecademy.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-bold hover:underline"
+                    >
+                      Certificate <ExternalLink size={16} />
+                    </a>
+                  </li>
+                  <li className="flex items-center gap-2">
                     <span>
                       <strong>Codecademy</strong> – Python 3 (2025)
                     </span>
