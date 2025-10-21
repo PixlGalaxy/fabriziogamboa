@@ -177,7 +177,10 @@ const About: React.FC = () => {
                 <h2 className="text-3xl font-semibold mb-4">Professional Experience</h2>
                 <ul className="space-y-2">
                   <li>
-                    <strong>Laboratorio Unilene</strong> (2019 - 2023) - Worked in the development and innovation area, improving sterilization machines and participating in process optimization.
+                    <strong>Unilene Laboratory</strong> (2022 - Present) - Member of the board of directors, contributing to the company’s strategic planning and overall management.
+                  </li>
+                  <li>
+                    <strong>Unilene Laboratory</strong> (2019 - 2023) - Worked in the development and innovation area, improving sterilization machines and participating in process optimization.
                   </li>
                   <li>
                     <strong>FGR Electronics</strong> (2015 - 2018) - Founded my own company, where I designed and fabricated electric bicycles and electric karts for recreational use.
