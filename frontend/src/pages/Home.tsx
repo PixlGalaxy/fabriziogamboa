@@ -82,7 +82,7 @@ const Home: React.FC = () => {
           {/* PFP */}
           <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
             <img
-              src="/Galaxy_PFP.png"
+              src="/Galaxy_PFP.gif"
               alt="Profile"
               className="w-48 md:w-[300px] h-auto object-cover rounded-lg shadow-lg"
             />
