@@ -341,6 +341,25 @@ const About: React.FC = () => {
               </section>
             </FadeInSection>
 
+            {/* Resume Section */}
+            <FadeInSection>
+              <section>
+                <h2 className="text-3xl font-semibold mb-4">Resume</h2>
+                <p className="text-lg sm:text-xl leading-relaxed mb-4">
+                  For a comprehensive overview of my professional experience, skills, and qualifications, 
+                  please view my detailed resume:
+                </p>
+                <a
+                  href="https://webincloud.itzgalaxy.com/public/file/TDQEL_8XTUel1NnV4wTPCw/FabrizioGamboa%20Resume%202025%20Q4.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 font-bold text-blue-400 hover:underline text-lg"
+                >
+                  View My Resume <ExternalLink size={20} />
+                </a>
+              </section>
+            </FadeInSection>
+
             {/* Credits and License Section */}
             <FadeInSection>
               <section>
