@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal resume website, built with a **React** and **Vite** frontend and an **Express.js** backend. The site serves as a digital portfolio showcasing my skills, projects, and professional experience.
 
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/PixlGalaxy/fabriziogamboa/badge)](https://scorecard.dev/viewer/?uri=github.com/PixlGalaxy/fabriziogamboa)
+
 ## Features
 
 - **Interactive UI**: A responsive and dynamic user interface developed with React and Vite with lucide icons.
