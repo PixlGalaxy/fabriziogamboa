@@ -1,24 +1,24 @@
 # 1: Frontend Build
-FROM node:18-alpine AS build-frontend
+FROM node:24-alpine AS build-frontend
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY frontend ./
 RUN npm run build
 
 # 2: Backend Build
-FROM node:18-alpine AS build-backend
+FROM node:24-alpine AS build-backend
 WORKDIR /app/backend
 COPY backend/package.json backend/package-lock.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY backend ./
 
 # 3: Final Image Nginx And Node.js
-FROM node:18-alpine
+FROM node:24-alpine
 WORKDIR /app
 
 # Install Nginx
-RUN apk add --no-cache nginx
+RUN apk add --no-cache nginx && rm -rf /var/cache/apk/*
 
 # Copy Frontend To Nginx Dir
 COPY --from=build-frontend /app/frontend/dist /usr/share/nginx/html
