@@ -3,6 +3,8 @@
 This repository contains the source code for my personal resume website, built with a **React** and **Vite** frontend and an **Express.js** backend. The site serves as a digital portfolio showcasing my skills, projects, and professional experience.
 
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/PixlGalaxy/fabriziogamboa/badge)](https://scorecard.dev/viewer/?uri=github.com/PixlGalaxy/fabriziogamboa)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12524/badge)](https://www.bestpractices.dev/projects/12524)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Features
 
