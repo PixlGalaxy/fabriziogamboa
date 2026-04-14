@@ -8,7 +8,21 @@ const app = express();
 const PORT = 3000;
 
 // Middlewares
-app.use(cors());
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+    ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim())
+    : [];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error(`CORS: origin '${origin}' not allowed`));
+        }
+    },
+    methods: ["POST"],
+    allowedHeaders: ["Content-Type"]
+}));
 app.use(bodyParser.json());
 
 // Discord Bot Config
