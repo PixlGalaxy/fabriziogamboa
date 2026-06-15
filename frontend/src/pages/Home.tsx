@@ -37,6 +37,21 @@ const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 };
 
 const Home: React.FC = () => {
+  const [showGif, setShowGif] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/Galaxy_PFP.gif";
+
+    const timer = setTimeout(() => setShowGif(true), 5000);
+    img.onload = () => {
+      clearTimeout(timer);
+      setShowGif(true);
+    };
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <title>Fabrizio Gamboa - Home</title>
@@ -82,7 +97,7 @@ const Home: React.FC = () => {
           {/* PFP */}
           <div className="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
             <img
-              src="/Galaxy_PFP.gif"
+              src={showGif ? "/Galaxy_PFP.gif" : "/Galaxy_PFP.png"}
               alt="Profile"
               className="w-48 md:w-[300px] h-auto object-cover rounded-lg shadow-lg"
             />
