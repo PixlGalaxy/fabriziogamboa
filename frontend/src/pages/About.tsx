@@ -1,406 +1,261 @@
-import React, { useRef, useEffect, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import React from "react";
+import { ExternalLink, FileText, Award, Users, Building2, Code2, Briefcase, GraduationCap, Scale } from "lucide-react";
+import FadeInSection from "../components/FadeInSection";
+import Footer from "../components/Footer";
 
-const FadeInSection: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const domRef = useRef<HTMLDivElement | null>(null);
-  const [isVisible, setVisible] = useState(false);
+const CV = "https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/";
+const cvFile = (name: string) => `${CV}${encodeURIComponent(name)}/download?inline=1&path=`;
+const RESUME_URL = cvFile("FabrizioGamboa Resume.pdf");
 
-  useEffect(() => {
-    const elementRef = domRef.current;
-    if (!elementRef) return;
+const CERTIFICATIONS: { org: string; name: string; year: string; url: string }[] = [
+  { org: "Codecademy", name: "Working with Containers: Docker", year: "2025", url: cvFile("Introduction to Docker Course Codecademy.pdf") },
+  { org: "Codecademy", name: "Python 3", year: "2025", url: cvFile("Learn Python 3 Course Codecademy.pdf") },
+  { org: "Codecademy", name: "Implementing Google Compute Engine Course", year: "2025", url: cvFile("Google Associate Cloud Engineer Codecademy.pdf") },
+  { org: "Codecademy", name: "BI Dashboards with Power BI", year: "2025", url: cvFile("BI Dashboards with Power BI Course Codecademy.pdf") },
+  { org: "Codecademy", name: "Intro to AI Transformers", year: "2025", url: cvFile("Intro to AI Transformers Codecademy.pdf") },
+  { org: "University of Maryland", name: "Cybersecurity for Everyone", year: "2023", url: "https://www.coursera.org/account/accomplishments/certificate/CU3U8R8HNXYY" },
+  { org: "The University of Edinburgh", name: "An Introduction to Programming", year: "2023", url: "https://www.coursera.org/account/accomplishments/certificate/FBBPTTW9EG85" },
+  { org: "University of Minnesota", name: "Cloud Security Basics", year: "2023", url: "https://www.coursera.org/account/accomplishments/certificate/WN5FJN46R6HT" },
+  { org: "MIT", name: "3D Modeling & Design with Maya", year: "2018", url: cvFile("MIT ID TECH CAMP DIPLOMA.pdf") },
+  { org: "PUCP", name: "Build Your Own 3D Printer", year: "2015", url: cvFile("PUCP 3D PRINTER.pdf") },
+  { org: "Anglo Continental", name: "English Language & Activity Program", year: "2015", url: cvFile("Certificate of studies anglo continental.pdf") },
+];
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+const EDUCATION: [string, string, string][] = [
+  ["Florida Gulf Coast University (FGCU)", "Bachelor of Computer Science", "2024 - Present"],
+  ["Universidad Peruana de Ciencias Aplicadas (UPC)", "Bachelor of Mechatronic Engineering", "2021 - 2023"],
+  ["Universidad de Ingeniería y Tecnología (UTEC)", "Bachelor of Mechatronic Engineering", "2019 - 2020"],
+  ["Colegio José Quiñones", "Secondary Education", "2018"],
+  ["Colegio Santa María Marianistas", "Secondary Education", "2012 - 2017"],
+];
 
-    observer.observe(elementRef);
-    return () => observer.disconnect();
-  }, []);
+const EXPERIENCE: [string, string, string][] = [
+  ["Unilene Laboratory", "2022 - Present", "Member of the board of directors, contributing to the company’s strategic planning and overall management."],
+  ["Unilene Laboratory", "2019 - 2023", "Worked in the development and innovation area, improving sterilization machines and participating in process optimization."],
+  ["FGR Electronics", "2015 - 2018", "Founded my own company, where I designed and fabricated electric bicycles and electric karts for recreational use."],
+];
 
-  return (
-    <div
-      ref={domRef}
-      className={`transition-all duration-700 transform ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-    >
-      {children}
-    </div>
-  );
-};
+const LEADERSHIP: [string, string, string][] = [
+  ["Leader of 'Mechatronics Club'", "2018", "Restructured the organization of the club and recruited new members, on Canterburry School."],
+  ["Founder of 'Off-Road Hyenas'", "2020 - Present", "An Off-Road club to organize journeys and off-road tracks, bringing together Peruvian enthusiasts to learn and practice the sport."],
+  ["Founder of 'Durazzno'", "2020 - Present", "A community for Latin American technology and video games enthusiasts."],
+  ["Founder of 'Bombastic Club'", "2023 - Present", "A club focused on car enthusiasts."],
+];
+
+const SKILLS: [string, string][] = [
+  ["Programming Languages", "Python, C#, C++, C, JavaScript, TypeScript, Arduino"],
+  ["Frameworks & Libraries", ".NET, React, Node.js, Bootstrap, Tailwind CSS, Qt, PyTorch, TensorFlow, HTML, CSS"],
+  ["Operating Systems", "Linux, UnRaid, VMWare, Ubuntu, RedHat, Windows, Kali Linux, Raspberry Pi"],
+  ["DevOps & Tools", "Docker, Nginx, Git, SQLite, Cloudflare, PowerShell, VS Code, Visual Studio, UnRaid, Hyper-V, EXSi"],
+];
+
+const SectionHeader: React.FC<{ icon: React.ReactNode; title: string }> = ({ icon, title }) => (
+  <h2 className="flex items-center gap-3 text-2xl md:text-3xl font-semibold mb-6">
+    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-yellow/20 to-brand-green/20 text-brand-green ring-1 ring-white/10">
+      {icon}
+    </span>
+    {title}
+  </h2>
+);
+
+/** Vertical timeline used by Education, Experience and Leadership */
+const Timeline: React.FC<{ items: [string, string, string][] }> = ({ items }) => (
+  <ol className="relative border-l border-white/10 ml-2 space-y-6">
+    {items.map(([title, date, text], i) => (
+      <li key={i} className="pl-6 relative">
+        <span className="absolute -left-[7px] top-1.5 h-3 w-3 rounded-full bg-brand-green ring-4 ring-brand-green/15" />
+        <p className="text-xs uppercase tracking-wider text-gray-500">{date}</p>
+        <p className="font-semibold text-white">{title}</p>
+        {text && <p className="text-gray-400 leading-relaxed">{text}</p>}
+      </li>
+    ))}
+  </ol>
+);
 
 const About: React.FC = () => {
   return (
     <>
       <title>Fabrizio Gamboa - About</title>
 
-      <div className="relative min-h-screen bg-gradient-to-l from-gray-900 to-gray-800">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+      <div className="relative min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950">
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-60">
           <ul className="circles absolute top-0 left-0 w-full h-full">
-            <li className="bg-yellow-500/50"></li>
-            <li className="bg-blue-500/50"></li>
-            <li className="bg-red-500/50"></li>
-            <li className="bg-green-500/50"></li>
-            <li className="bg-indigo-500/50"></li>
-            <li className="bg-pink-500/50"></li>
-            <li className="bg-purple-500/50"></li>
-            <li className="bg-teal-500/50"></li>
-            <li className="bg-orange-500/50"></li>
-            <li className="bg-cyan-500/50"></li>
+            <li className="bg-yellow-500/40"></li>
+            <li className="bg-blue-500/40"></li>
+            <li className="bg-red-500/40"></li>
+            <li className="bg-green-500/40"></li>
+            <li className="bg-indigo-500/40"></li>
+            <li className="bg-pink-500/40"></li>
+            <li className="bg-purple-500/40"></li>
+            <li className="bg-teal-500/40"></li>
+            <li className="bg-orange-500/40"></li>
+            <li className="bg-cyan-500/40"></li>
           </ul>
         </div>
 
         {/* Main Container */}
-        <div className="container mx-auto px-4 sm:px-12 pt-24 sm:pt-32 relative z-10 text-white">
+        <div className="container mx-auto px-4 sm:px-12 pt-28 sm:pt-36 relative z-10 text-white">
           {/* Hero Section */}
-          <section className="text-center mb-12">
-            <h1 className="text-5xl sm:text-6xl font-extrabold mb-6">ABOUT</h1>
+          <section className="text-center mb-14">
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-400 mb-3">Get to know me</p>
+            <h1 className="text-5xl sm:text-7xl font-bold text-brand-gradient">About</h1>
           </section>
 
-          {/* Fade In Content */}
-          <div className="space-y-12">
+          <div className="space-y-8 max-w-5xl mx-auto">
             {/* Professional Profile Section */}
             <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Professional Profile</h2>
-                <p className="text-lg sm:text-xl leading-relaxed">
-                  I am a passionate <strong>Computer Scientist</strong> and{" "}
-                  <strong>Mechatronic Engineer</strong> with a strong focus on{" "}
-                  <strong>Technological Innovation</strong>, <strong>Software Development</strong>, and{" "}
-                  <strong>Hardware Design</strong>. My experience includes{" "}
-                  <strong>Server Building and Administration</strong>, the creation of <strong>Electronic Products</strong>, and deep involvement in{" "}
-                  <strong>Artificial Intelligence (AI)</strong> model development. I am currently working on a project called{" "}
-                  <strong>EagleDocs</strong>, which aims to assist FGCU students by providing a personalized AI to help them study.
+              <section className="glass-card p-6 md:p-10">
+                <SectionHeader icon={<Users size={20} />} title="Professional Profile" />
+                <p className="text-lg leading-relaxed text-gray-300">
+                  I am a passionate <strong className="text-white">Computer Scientist</strong> and{" "}
+                  <strong className="text-white">Mechatronic Engineer</strong> with a strong focus on{" "}
+                  <strong className="text-white">Technological Innovation</strong>, <strong className="text-white">Software Development</strong>, and{" "}
+                  <strong className="text-white">Hardware Design</strong>. My experience includes{" "}
+                  <strong className="text-white">Server Building and Administration</strong>, the creation of{" "}
+                  <strong className="text-white">Electronic Products</strong>, and deep involvement in{" "}
+                  <strong className="text-white">Artificial Intelligence (AI)</strong> model development. I am currently working on a project called{" "}
+                  <strong className="text-white">EagleDocs</strong>, which aims to assist FGCU students by providing a personalized AI to help them study.
                 </p>
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-yellow to-brand-green px-5 py-2.5 font-semibold text-gray-950 transition hover:brightness-110"
+                >
+                  <FileText size={18} /> View My Resume
+                </a>
               </section>
             </FadeInSection>
 
-            {/* Education Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Education</h2>
-                <ul className="space-y-2">
-                  <li>
-                    <strong>Florida Gulf Coast University (FGCU)</strong> - Bachelor of Computer Science (2024 - Present)
-                  </li>
-                  <li>
-                    <strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong> - Bachelor of Mechatronic Engineering (2021 - 2023)
-                  </li>
-                  <li>
-                    <strong>Universidad de Ingeniería y Tecnología (UTEC)</strong> - Bachelor of Mechatronic Engineering (2019 - 2020)
-                  </li>
-                  <li>
-                    <strong>Colegio José Quiñones</strong> - Secondary Education (2018)
-                  </li>
-                  <li>
-                    <strong>Colegio Santa María Marianistas</strong> - Secondary Education (2012 - 2017)
-                  </li>
-                </ul>
-              </section>
-            </FadeInSection>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Education Section */}
+              <FadeInSection>
+                <section className="glass-card p-6 md:p-8 h-full">
+                  <SectionHeader icon={<GraduationCap size={20} />} title="Education" />
+                  <Timeline items={EDUCATION.map(([school, degree, years]) => [school, years, degree])} />
+                </section>
+              </FadeInSection>
 
-            {/* Leadership Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Leadership</h2>
-                <ul className="space-y-2">
-                    <li>
-                        <strong>Leader of 'Mechatronics Club'</strong> (2018) - Restructured the organization of the club and recruited new members, on Canterburry School.
-                    </li>
-                    <li>
-                        <strong>Founder of 'Off-Road Hyenas'</strong> (2020 - Present) - An Off-Road club to organize journeys and off-road tracks, bringing together Peruvian enthusiasts to learn and practice the sport.
-                    </li>
-                    <li>
-                        <strong>Founder of 'Durazzno'</strong> (2020 - Present) - A community for Latin American technology and video games enthusiasts.
-                    </li>
-                    <li>
-                        <strong>Founder of 'Bombastic Club'</strong> (2023 - Present) - A club focused on car enthusiasts.
-                    </li>
-                </ul>
-              </section>
-            </FadeInSection>
+              {/* Professional Experience Section */}
+              <FadeInSection delay={80}>
+                <section className="glass-card p-6 md:p-8 h-full">
+                  <SectionHeader icon={<Briefcase size={20} />} title="Professional Experience" />
+                  <Timeline items={EXPERIENCE} />
+                </section>
+              </FadeInSection>
+            </div>
 
-            {/* Organizations Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Organizations</h2>
-                <ul className="space-y-2">
-                  <li>
-                    <strong>Member of </strong>
-                    <a
-                      href="https://stegripe.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold hover:underline"
-                    >
-                      'Stegripe Development'
-                    </a>{" "}
-                    (2025–Present) – Developer on{" "}
-                    <a
-                      href="https://github.com/stegripe/rawon"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-bold hover:underline"
-                    >
-                      Rawon
-                    </a>{" "}
-                    (Discord Music and Management bot).
-                  </li>
-                </ul>
-              </section>
-            </FadeInSection>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Leadership Section */}
+              <FadeInSection>
+                <section className="glass-card p-6 md:p-8 h-full">
+                  <SectionHeader icon={<Users size={20} />} title="Leadership" />
+                  <Timeline items={LEADERSHIP} />
+                </section>
+              </FadeInSection>
 
-            {/* Technical Skills Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Technical Skills</h2>
-                <ul className="space-y-2">
-                  <li><strong>Programming Languages</strong>: Python, C#, C++, C, JavaScript, TypeScript, Arduino</li>
-                  <li><strong>Frameworks & Libraries</strong>: .NET, React, Node.js, Bootstrap, Tailwind CSS, Qt, PyTorch, TensorFlow, HTML, CSS</li>
-                  <li><strong>Operating Systems</strong>: Linux, UnRaid, VMWare, Ubuntu, RedHat, Windows, Kali Linux, Raspberry Pi</li>
-                  <li><strong>DevOps & Tools</strong>: Docker, Nginx, Git, SQLite, Cloudflare, PowerShell, VS Code, Visual Studio, UnRaid, Hyper-V, EXSi</li>
-                </ul>
-              </section>
-            </FadeInSection>
+              <div className="space-y-8">
+                {/* Organizations Section */}
+                <FadeInSection delay={80}>
+                  <section className="glass-card p-6 md:p-8">
+                    <SectionHeader icon={<Building2 size={20} />} title="Organizations" />
+                    <p className="text-gray-300 leading-relaxed">
+                      <strong className="text-white">Member of </strong>
+                      <a href="https://stegripe.org/" target="_blank" rel="noopener noreferrer" className="font-bold text-brand-green hover:underline">
+                        'Stegripe Development'
+                      </a>{" "}
+                      (2025–Present) – Developer on{" "}
+                      <a href="https://github.com/stegripe/rawon" target="_blank" rel="noopener noreferrer" className="font-bold text-brand-green hover:underline">
+                        Rawon
+                      </a>{" "}
+                      (Discord Music and Management bot).
+                    </p>
+                  </section>
+                </FadeInSection>
 
-            {/* Professional Experience Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Professional Experience</h2>
-                <ul className="space-y-2">
-                  <li>
-                    <strong>Unilene Laboratory</strong> (2022 - Present) - Member of the board of directors, contributing to the company’s strategic planning and overall management.
-                  </li>
-                  <li>
-                    <strong>Unilene Laboratory</strong> (2019 - 2023) - Worked in the development and innovation area, improving sterilization machines and participating in process optimization.
-                  </li>
-                  <li>
-                    <strong>FGR Electronics</strong> (2015 - 2018) - Founded my own company, where I designed and fabricated electric bicycles and electric karts for recreational use.
-                  </li>
-                </ul>
-              </section>
-            </FadeInSection>
+                {/* Technical Skills Section */}
+                <FadeInSection delay={120}>
+                  <section className="glass-card p-6 md:p-8">
+                    <SectionHeader icon={<Code2 size={20} />} title="Technical Skills" />
+                    <div className="space-y-4">
+                      {SKILLS.map(([group, list]) => (
+                        <div key={group}>
+                          <p className="text-sm font-semibold text-white mb-2">{group}</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {list.split(", ").map((s) => (
+                              <span key={s} className="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-xs text-gray-300">
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </FadeInSection>
+              </div>
+            </div>
 
             {/* Certifications Section */}
             <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Certifications</h2>
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Codecademy</strong> – Working with Containers: Docker (2025)
-                    </span>
+              <section className="glass-card p-6 md:p-10">
+                <SectionHeader icon={<Award size={20} />} title="Certifications" />
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {CERTIFICATIONS.map((c) => (
                     <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Introduction%20to%20Docker%20Course%20Codecademy.pdf/download?inline=1&path="
+                      key={c.name}
+                      href={c.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
+                      className="group flex items-start justify-between gap-4 rounded-xl border border-white/5 bg-white/[0.03] p-4 transition hover:border-brand-green/40 hover:bg-white/[0.06]"
                     >
-                      Certificate <ExternalLink size={16} />
+                      <div>
+                        <p className="text-xs uppercase tracking-wider text-gray-500">
+                          {c.org} · {c.year}
+                        </p>
+                        <p className="font-semibold text-white">{c.name}</p>
+                      </div>
+                      <span className="flex flex-shrink-0 items-center gap-1 text-sm font-semibold text-brand-green">
+                        Certificate <ExternalLink size={15} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
                     </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Codecademy</strong> – Python 3 (2025)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Learn%20Python%203%20Course%20Codecademy.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Codecademy</strong> –  Implementing Google Compute Engine Course (2025)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Google%20Associate%20Cloud%20Engineer%20Codecademy.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Codecademy</strong> –  BI Dashboards with Power BI (2025)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/BI%20Dashboards%20with%20Power%20BI%20Course%20Codecademy.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Codecademy</strong> – Intro to AI Transformers (2025)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Intro%20to%20AI%20Transformers%20Codecademy.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>University of Maryland</strong> – Cybersecurity for Everyone (2023)
-                    </span>
-                    <a
-                      href="https://www.coursera.org/account/accomplishments/certificate/CU3U8R8HNXYY"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>The University of Edinburgh</strong> – An Introduction to Programming (2023)
-                    </span>
-                    <a
-                      href="https://www.coursera.org/account/accomplishments/certificate/FBBPTTW9EG85"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>University of Minnesota</strong> – Cloud Security Basics (2023)
-                    </span>
-                    <a
-                      href="https://www.coursera.org/account/accomplishments/certificate/WN5FJN46R6HT"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>MIT</strong> – 3D Modeling & Design with Maya (2018)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/MIT%20ID%20TECH%20CAMP%20DIPLOMA.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>PUCP</strong> – Build Your Own 3D Printer (2015)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/PUCP%203D%20PRINTER.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>
-                      <strong>Anglo Continental</strong> – English Language & Activity Program (2015)
-                    </span>
-                    <a
-                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Certificate%20of%20studies%20anglo%20continental.pdf/download?inline=1&path="
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-bold hover:underline"
-                    >
-                      Certificate <ExternalLink size={16} />
-                    </a>
-                  </li>
-                </ul>
-              </section>
-            </FadeInSection>
-
-            {/* Resume Section */}
-            <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Resume</h2>
-                <p className="text-lg sm:text-xl leading-relaxed mb-4">
-                  For a comprehensive overview of my professional experience, skills, and qualifications, 
-                  please view my detailed resume:
-                </p>
-                <a
-                  href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/FabrizioGamboa%20Resume.pdf/download?inline=1&path="
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-bold text-blue-400 hover:underline text-lg"
-                >
-                  View My Resume <ExternalLink size={20} />
-                </a>
+                  ))}
+                </div>
               </section>
             </FadeInSection>
 
             {/* Credits and License Section */}
             <FadeInSection>
-              <section>
-                <h2 className="text-3xl font-semibold mb-4">Credits & License</h2>
-                <p className="text-lg">
-                  This website was created by <strong>PixlGalaxy</strong> and is open-source. 
-                  You are free to use, modify, and distribute it, as long as you provide credit 
-                  to the original creator <strong>PixlGalaxy</strong> somewhere on your page.
+              <section className="glass-card p-6 md:p-10">
+                <SectionHeader icon={<Scale size={20} />} title="Credits & License" />
+                <p className="text-gray-300 leading-relaxed">
+                  This website was created by <strong className="text-white">PixlGalaxy</strong> and is open-source. You are free to use, modify, and
+                  distribute it, as long as you provide credit to the original creator <strong className="text-white">PixlGalaxy</strong> somewhere on
+                  your page.
                 </p>
-
-                <p className="text-md mt-2">
-                  View the full source code: 
-                  <a 
-                    href="https://github.com/PixlGalaxy/fabriziogamboa" 
-                    target="_blank" 
+                <p className="mt-3 text-gray-300">
+                  View the full source code:
+                  <a
+                    href="https://github.com/PixlGalaxy/fabriziogamboa"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline ml-1"
+                    className="text-brand-green hover:underline ml-1"
                   >
                     Here
                   </a>
                 </p>
-
-                <p className="text-md mt-2">
-                  This project is licensed under the 
-                  <strong> Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>. 
-                  This means you can share and adapt this work as long as you provide proper credit.
+                <p className="mt-3 text-gray-300">
+                  This project is licensed under the
+                  <strong className="text-white"> Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>. This means you can share and adapt
+                  this work as long as you provide proper credit.
                 </p>
-
-                <p className="text-sm mt-4">
-                  © {new Date().getFullYear()} PixlGalaxy. All rights reserved.
-                </p>
+                <p className="text-sm mt-4 text-gray-500">© {new Date().getFullYear()} PixlGalaxy. All rights reserved.</p>
               </section>
             </FadeInSection>
-
-            {/* Footer */}
-            <footer className="mt-12 text-gray-400 text-center md:text-left">
-                <p>&copy; {new Date().getFullYear()} Fabrizio Gamboa | ItzGalaxy.com | All Rights Reserved.</p>
-            </footer>
-            
           </div>
         </div>
+
+        <Footer />
       </div>
     </>
   );

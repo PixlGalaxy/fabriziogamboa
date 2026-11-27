@@ -1,6 +1,168 @@
 @import "tailwindcss";
 
 /* ####################################################################### */
+/* Design tokens: same yellow / green / cyan as the animated logo */
+
+@theme {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Space Grotesk", "Inter", ui-sans-serif, sans-serif;
+    --color-brand-yellow: #ffd000;
+    --color-brand-green: #4eea33;
+    --color-brand-cyan: #00ffd5;
+    --color-ink: #07090d;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--color-ink);
+    color-scheme: dark;
+}
+
+body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: color-mix(in srgb, var(--color-brand-green) 35%, transparent);
+    color: #fff;
+}
+
+h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+}
+
+/* Gradient text for names and highlights */
+.text-brand-gradient {
+    background: linear-gradient(90deg, var(--color-brand-yellow), var(--color-brand-green) 50%, var(--color-brand-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* The gradient only paints inside the line box: leave room for descenders (y, g, p) */
+    padding-bottom: 0.14em;
+    line-height: 1.15;
+}
+
+/* Frosted card used for every section */
+.glass-card {
+    background: rgba(17, 24, 39, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card-hover {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card-hover:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--color-brand-green) 45%, transparent);
+    box-shadow: 0 16px 50px -12px color-mix(in srgb, var(--color-brand-green) 25%, transparent);
+}
+
+/* Section heading with a small gradient bar */
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title::before {
+    content: "";
+    width: 0.35rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--color-brand-yellow), var(--color-brand-green));
+    flex-shrink: 0;
+}
+
+/* Project cards sit on the animated stripes: solid enough to read, no blur (30 blurred cards over a moving background is expensive) */
+.project-card {
+    background: rgba(17, 24, 39, 0.82);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Social page cards: each one takes its network's color from --brand */
+.social-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1.1rem;
+    border-radius: 1.1rem;
+    background: rgba(17, 24, 39, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.social-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9rem;
+    color: var(--brand);
+    background: color-mix(in srgb, var(--brand) 14%, transparent);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.social-arrow {
+    color: rgb(107 114 128);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+a:hover > .social-card,
+button:hover > .social-card,
+a:focus-visible > .social-card,
+button:focus-visible > .social-card {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--brand) 55%, transparent);
+    background: color-mix(in srgb, var(--brand) 7%, rgba(17, 24, 39, 0.75));
+    box-shadow: 0 14px 40px -14px color-mix(in srgb, var(--brand) 55%, transparent);
+}
+
+a:hover > .social-card .social-icon,
+button:hover > .social-card .social-icon {
+    background: var(--brand);
+    color: #fff;
+    transform: scale(1.05) rotate(-4deg);
+}
+
+a:hover > .social-card .social-arrow,
+button:hover > .social-card .social-arrow {
+    color: #fff;
+    transform: translate(2px, -2px);
+}
+
+/* GitHub's brand color is near-white: keep its icon dark on hover */
+.social-card[style*="#f0f6fc"] .social-icon { color: #f0f6fc; }
+a:hover > .social-card[style*="#f0f6fc"] .social-icon { color: #0d1117; }
+
+/* Thin custom scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ####################################################################### */
 /* Global CSS */
 
 .background404 {
@@ -22,7 +184,7 @@ html, body {
 }
 
 .navbar-mobile.active {
-    max-height: 380px;
+    max-height: 480px;
     opacity: 1;
     padding-bottom: 10px;
 }
@@ -348,10 +510,12 @@ to {
 /* Animated Bubbles CSS */
 
 .bubbles {
-    position: absolute;
-    width: 100%;
+    /* Fixed to the screen, so bubbles never get cut at 100vh on pages taller than the viewport */
+    position: fixed;
+    inset: 0;
     height: 100vh;
     overflow: hidden;
+    pointer-events: none;
   }
   
   .bubble {
