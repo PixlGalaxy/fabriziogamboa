@@ -199,7 +199,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> – Working with Containers: Docker (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/RV0KZ2Ywqk20-sjao8zhdg/Introduction%20to%20Docker%20Course%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Introduction%20to%20Docker%20Course%20Codecademy.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -212,7 +212,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> – Python 3 (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/X5KtG9Ykf0CDEZgxoyeuNA/Learn%20Python%203%20Course%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Learn%20Python%203%20Course%20Codecademy.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -225,7 +225,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> –  Implementing Google Compute Engine Course (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/RO_zdO7IAk6h4GdvuSTShQ/Google%20Associate%20Cloud%20Engineer%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Google%20Associate%20Cloud%20Engineer%20Codecademy.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -238,7 +238,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> –  BI Dashboards with Power BI (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/QtBsG_0xFEat4hZpKNdKRw/BI%20Dashboards%20with%20Power%20BI%20Course%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/BI%20Dashboards%20with%20Power%20BI%20Course%20Codecademy.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -251,7 +251,7 @@ const About: React.FC = () => {
                       <strong>Codecademy</strong> – Intro to AI Transformers (2025)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/wfiVK1JXV06wfo1hhtswfA/Intro%20to%20AI%20Transformers%20Codecademy.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Intro%20to%20AI%20Transformers%20Codecademy.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -303,7 +303,7 @@ const About: React.FC = () => {
                       <strong>MIT</strong> – 3D Modeling & Design with Maya (2018)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/miu3n1nlgUmWhZW5k_yw5Q/MIT%20ID%20TECH%20CAMP%20DIPLOMA.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/MIT%20ID%20TECH%20CAMP%20DIPLOMA.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -316,7 +316,7 @@ const About: React.FC = () => {
                       <strong>PUCP</strong> – Build Your Own 3D Printer (2015)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/9fsjinycp0elrbdqfktfhq/PUCP%203D%20PRINTER.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/PUCP%203D%20PRINTER.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -329,7 +329,7 @@ const About: React.FC = () => {
                       <strong>Anglo Continental</strong> – English Language & Activity Program (2015)
                     </span>
                     <a
-                      href="https://webincloud.itzgalaxy.com/public/file/q_3s6jrzl0qwc3bqagfylw/Certificate%20of%20studies%20anglo%20continental.pdf"
+                      href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/Certificate%20of%20studies%20anglo%20continental.pdf/download?inline=1&path="
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-1 font-bold hover:underline"
@@ -350,7 +350,7 @@ const About: React.FC = () => {
                   please view my detailed resume:
                 </p>
                 <a
-                  href="https://webincloud.itzgalaxy.com/public/file/TDQEL_8XTUel1NnV4wTPCw/FabrizioGamboa%20Resume%202025%20Q4.pdf"
+                  href="https://webincloud.itzgalaxy.com/backend/api/public/fabriziogamboa/FabrizioGamboaP/CV%20DOCUMENTS/FabrizioGamboa%20Resume.pdf/download?inline=1&path="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 font-bold text-blue-400 hover:underline text-lg"
