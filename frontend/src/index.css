@@ -166,8 +166,15 @@ a:hover > .social-card[style*="#f0f6fc"] .social-icon { color: #0d1117; }
 /* Global CSS */
 
 .background404 {
-    opacity: 0.4;
-    background: #ffd000;
+    /* 40% #ffd000 over white, painted solid: the page behind is now dark, so a translucent yellow turned brown */
+    background: #ffec99;
+}
+
+/* The 404 page keeps its original look: undo the global Inter / Space Grotesk fonts */
+.page-404,
+.page-404 h1 {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    letter-spacing: normal;
 }
 
 html, body {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFound: React.FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
+    <div className="page-404 relative min-h-screen flex flex-col overflow-hidden">
       <title>Fabrizio Gamboa - 404</title>
       <meta
         name="description"
@@ -159,7 +159,7 @@ const NotFound: React.FC = () => {
       </div>
 
       {/* Artwork Credits */}
-      <footer className="w-full py-2 text-right pr-4 text-black-700 text-sm">
+      <footer className="w-full py-2 text-right pr-4 text-black text-sm">
         ArtWork By PulexArt
       </footer>
     </div>

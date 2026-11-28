@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { ReactComponent as Logo } from "../assets/Icon.svg";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 
@@ -20,6 +20,9 @@ const linkBase = "relative px-1 py-1 text-sm font-semibold transition-colors";
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+  // The 404 page has a light background: the transparent navbar is unreadable there
+  const isNotFound = !NAV_ITEMS.some((item) => !item.external && item.to === (pathname.replace(/\/+$/, "") || "/"));
 
   // Solid background once the page is scrolled, transparent glass at the top
   useEffect(() => {
@@ -70,8 +73,8 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b ${
-        scrolled || isMenuOpen
-          ? "bg-gray-950/80 border-white/10 backdrop-blur-xl"
+        scrolled || isMenuOpen || isNotFound
+          ?"bg-gray-950/80 border-white/10 backdrop-blur-xl"
           : "bg-transparent border-transparent backdrop-blur-sm"
       }`}
     >
